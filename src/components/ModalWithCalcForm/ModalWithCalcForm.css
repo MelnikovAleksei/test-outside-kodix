@@ -1,0 +1,424 @@
+.modal-with-calc-form {
+  display: block;
+  box-sizing: border-box;
+}
+
+.modal-with-calc-form::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  opacity: 0.3;
+}
+
+.modal-with-calc-form__container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 552px;
+  max-width: 100%;
+}
+
+.modal-with-calc-form__content {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 32px;
+}
+
+.modal-with-calc-form__header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.modal-with-calc-form__header-title {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.43;
+  color: #000000;
+  box-sizing: border-box;
+  margin: 0;
+  padding-bottom: 17px;
+  max-width: 400px;
+}
+
+.modal-with-calc-form__header-text {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #808080;
+  margin: 0;
+  padding-bottom: 18px;
+  box-sizing: border-box;
+}
+
+.modal-with-calc-form__close-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  align-self: flex-end;
+  width: 18px;
+  height: 18px;
+  background-color: unset;
+  background-image: url(../../images/Modal/close-button-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: unset;
+  cursor: pointer;
+}
+
+.modal-with-calc-form__form-label-number-field {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 8px 0;
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #000000;
+}
+
+.modal-with-calc-form__form-input-number {
+  margin: 8px 0 0 0;
+  padding: 8px 10px;
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #BEC5CC;
+  box-sizing: border-box;
+  border: 1px solid #DFE3E6;
+  border-radius: 3px;
+  position: relative;
+  -moz-appearance: textfield;
+}
+
+.modal-with-calc-form__form-input-number::-webkit-outer-spin-button,
+.modal-with-calc-form__form-input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-with-calc-form__form-input-number:hover {
+  border-color: #000000;
+}
+
+.modal-with-calc-form__form-input-number:focus {
+  border-color: #DFE3E6;
+  color: #000000;
+}
+
+.modal-with-calc-form__form-input-number:valid {
+  color: #000000;
+}
+
+.modal-with-calc-form__form-input-number:disabled {
+  border-color: #808080;
+  color: #808080;
+}
+
+.modal-with-calc-form__form-input-number:invalid {
+  border: 1px solid #EA0029;
+  color: #EA0029;
+}
+
+.modal-with-calc-form__form-input-number-error {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #EA0029;
+  margin-top: 4px;
+}
+
+.modal-with-calc-form__form-text-button {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #EA0029;
+  border: unset;
+  background: unset;
+  transition: color .3s ease;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.modal-with-calc-form__form-text-button:hover {
+  color: #F53A31;
+  cursor: pointer;
+}
+
+.modal-with-calc-form__form-text-button:active {
+  color: #EA0029;
+  cursor: pointer;
+}
+
+.modal-with-calc-form__form-checkbox-fieldset {
+  padding: 0;
+  margin: 18px 0;
+  box-sizing: border-box;
+  border: unset;
+}
+
+.modal-with-calc-form__form-fieldset-legend {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #000000;
+}
+
+.modal-with-calc-formm__form-label-checkbox {
+  box-sizing: border-box;
+  padding: 17px 0 16px 0;
+  border-bottom: 1px solid #DFE3E6;
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  white-space: break-spaces;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal-with-calc-form__form-input-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.modal-with-calc-form__form-input-checkbox-visible {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border: 1px solid #DFE3E6;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-right: 12px;
+  transition: all .1s ease;
+}
+
+.modal-with-calc-form__form-input-checkbox:hover ~ .modal-with-calc-form__form-input-checkbox-visible {
+  border-color:#000000;
+}
+
+.modal-with-calc-form__form-input-checkbox:checked ~ .modal-with-calc-form__form-input-checkbox-visible {
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  background-image: url(../../images/Modal/checkbox-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: unset;
+}
+
+.modal-with-calc-form__form-input-checkbox:disabled ~ .modal-with-calc-form__form-input-checkbox-visible {
+  background: #BEC5CC;
+  border-color: #BEC5CC;
+}
+
+.modal-with-calc-form__form-label-checkbox-span {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #808080;
+}
+
+.modal-with-calc-form__form-fieldset-radio {
+  padding: 7px 0 48px 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: unset;
+}
+
+.modal-with-calc-form__form-fieldset-radio-container {
+  display: flex;
+  align-items: center;
+}
+
+.modal-with-calc-form__form-input-radio-container {
+  display: grid;
+  gap: 20px 18px;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content);
+  margin-left: 32px;
+  box-sizing: border-box;
+  width: 200px;
+}
+
+.modal-with-calc-form__form-input-radio-visible {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  border-radius: 50px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  background: #EEF0F2;
+  color: #000000;
+  transition: all .1s ease;
+}
+
+.modal-with-calc-form__form-input-radio:active ~ .modal-with-calc-form__form-input-radio-visible {
+  color: #FFFFFF;
+}
+
+.modal-with-calc-form__form-input-radio:hover ~ .modal-with-calc-form__form-input-radio-visible {
+  background: #DFE3E6;
+}
+
+.modal-with-calc-form__form-input-radio:focus ~ .modal-with-calc-form__form-input-radio-visible {
+  outline: 1px solid black;
+}
+
+.modal-with-calc-form__form-input-radio:checked ~ .modal-with-calc-form__form-input-radio-visible {
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  color: #FFFFFF;
+}
+
+.modal-with-calc-form__form-input-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.modal-with-calc-form__form-submit-button {
+  font-family: 'Lab Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 50px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+  border: unset;
+  border-radius: 6px;
+  width: 100%;
+  padding: 16px 0;
+  margin: 0;
+  transition: background .1s ease;
+}
+
+.modal-with-calc-form__form-submit-button:hover {
+  background: linear-gradient(255.35deg, #EA0029 108.93%, rgba(255, 79, 79, 0) 0.83%), #EA0029;
+}
+
+.modal-with-calc-form__form-submit-button:active {
+  background: linear-gradient(255.35deg, #EA0029 108.93%, rgba(255, 79, 79, 0) 0.83%), #EA0029;
+}
+
+.modal-with-calc-form__form-submit-button:disabled {
+  background: linear-gradient(255.35deg, #BEC5CC 108.93%, rgba(255, 79, 79, 0) 0.83%), #BEC5CC;
+  box-shadow: unset;
+}
+
+@media screen and (max-width: 1023px) {
+  .modal-with-calc-form__container {
+    width: 453px;
+  }
+
+  .modal-with-calc-form__header-title {
+    max-width: 300px;
+  }
+
+  .modal-with-calc-form__close-button {
+    right: -10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modal-with-calc-form__container {
+    top: 0%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .modal-with-calc-form__content {
+    border-radius: 0;
+    padding: 32px 16px;
+  }
+
+  .modal-with-calc-form__close-button {
+    top: 6px;
+    right: 6px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .modal-with-calc-form__header-title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .modal-with-calc-form__header-text {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  .modal-with-calc-form__form-fieldset-radio {
+    padding-bottom: 16px;
+  }
+
+  .modal-with-calc-form__form-fieldset-radio-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-with-calc-form__form-input-radio-container {
+    margin: 0;
+    padding: 24px 0;
+  }
+
+  .modal-with-calc-form__form-submit-button {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .modal-with-calc-form__header-title {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .modal-with-calc-form__header-title {
+    max-width: 150px;
+  }
+}
+
