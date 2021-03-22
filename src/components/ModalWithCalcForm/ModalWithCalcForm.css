@@ -237,6 +237,10 @@
   border: unset;
 }
 
+.modal-with-calc-form__form-input-checkbox:focus ~ .modal-with-calc-form__form-input-checkbox-visible {
+  border: 1px solid #808080;
+}
+
 .modal-with-calc-form__form-input-checkbox:disabled ~ .modal-with-calc-form__form-input-checkbox-visible {
   background: #BEC5CC;
   border-color: #BEC5CC;

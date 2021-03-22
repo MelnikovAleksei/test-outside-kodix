@@ -1,12 +1,19 @@
+const DEFAULT_VALUE_OF_PROPERTY = 3000000;
+const DEFAULT_VALUE_OF_PROPERTY_LIMITER = 2000000;
+const MAXIMUM_TAX_DEDUCTION = 260000;
+const TAX_DEDUCTION_PERCENTAGE = 0.13;
+
+const NUMBER_OF_MOUNTHS_OF_YEAR = 12;
+
 const getArrDataAnnualTaxDeductions = (
   monthlySalary,
-  propertyValue = 3000000,
-  propertyValueLimiter = 2000000,
-  maxTaxDeduction = 260000,
+  propertyValue = DEFAULT_VALUE_OF_PROPERTY,
+  propertyValueLimiter = DEFAULT_VALUE_OF_PROPERTY_LIMITER,
+  maxTaxDeduction = MAXIMUM_TAX_DEDUCTION,
 ) => {
   const arrWithCalcData = [];
 
-  const taxDeductionPerYear = (monthlySalary * 12) * 0.13;
+  const taxDeductionPerYear = (monthlySalary * NUMBER_OF_MOUNTHS_OF_YEAR) * TAX_DEDUCTION_PERCENTAGE;
 
   let totalTaxDeduction = 0;
 

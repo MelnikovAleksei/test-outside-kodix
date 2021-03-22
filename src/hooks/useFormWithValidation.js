@@ -22,7 +22,7 @@ export default function useFormWithValidation() {
     });
 
     setIsValid(target.closest('form').checkValidity());
-  }
+  };
 
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
@@ -31,7 +31,7 @@ export default function useFormWithValidation() {
       setIsValid(newIsValid);
     },
     [setValues, setErrors, setIsValid]
-  )
+  );
 
   return {
     values,

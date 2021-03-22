@@ -12,6 +12,7 @@ import getOrdinal from '../../utils/getOrdinal';
 function ModalWithForm({
   isOpen,
   onClose,
+  onSubmit,
 }) {
 
   const STYLE_SETTINGS = {
@@ -54,7 +55,6 @@ function ModalWithForm({
     fieldsetRadioLegend: 'Что уменьшаем?',
     labelCheckbox: ' рублей в',
     spanLabelCheckbox: 'год',
-    radioInput: ['Платёж', 'Срок'],
     submitButton: 'Добавить',
   };
 
@@ -92,12 +92,10 @@ function ModalWithForm({
     errors,
     isValid,
     handleChange,
-    resetForm
+    resetForm,
   } = useFormWithValidation({});
 
-  const [taxDeductionData, setTaxDeductionData] = React.useState([]);
-
-  const [checkboxMarkup, setCheckBoxMarkup] = React.useState(null);
+  const [taxDeductions, setTaxDeductions] = React.useState([]);
 
   const formNumberFieldsMarkup = FORM_NUMBER_FIELDS_DATA.map((elem) => (
     <label
@@ -110,7 +108,6 @@ function ModalWithForm({
       <input
         className={STYLE_SETTINGS.inputNumberField}
         placeholder={elem.placeholder}
-        required={elem.required}
         name={elem.name}
         type={elem.type}
         value={values[elem.name] || ''}
@@ -124,7 +121,6 @@ function ModalWithForm({
           {errors[elem.name]}
         </span>
       )}
-
     </label>
   ));
 
@@ -145,35 +141,17 @@ function ModalWithForm({
     </label>
   ));
 
-  const getFormCheckboxMarkup = (data) => data.map((elem, index) => (
-    <label
-      key={uuid()}
-      className={STYLE_SETTINGS.labelCheckbox}
-    >
-      <input
-        className={STYLE_SETTINGS.inputCheckbox}
-        type="checkbox"
-      />
-      <span className={STYLE_SETTINGS.visibleInputCheckbox}></span>
-      {Intl.NumberFormat('ru-RU').format(elem) + TEXT_SETTINGS.labelCheckbox}
-      <span
-        className={STYLE_SETTINGS.labelCheckboxSpan}
-      >
-        {` ${index + 1}` + getOrdinal(index + 1) + TEXT_SETTINGS.spanLabelCheckbox}
-      </span>
-    </label>
-  ));
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    onSubmit({ values, taxDeductions })
     resetForm();
-    setCheckBoxMarkup(null);
+    setTaxDeductions([]);
     onClose();
   };
 
   const handleClickCalcTaxDeduction = () => {
     if (values.salary) {
-      setCheckBoxMarkup(getFormCheckboxMarkup(getArrDataAnnualTaxDeductions(values.salary)));
+      setTaxDeductions(getArrDataAnnualTaxDeductions(values.salary));
     }
   };
 
@@ -209,7 +187,7 @@ function ModalWithForm({
           >
             {TEXT_SETTINGS.formTextButton}
           </button>
-          {checkboxMarkup && (
+          {taxDeductions.length > 0 && (
             <fieldset
               className={STYLE_SETTINGS.fieldsetCheckbox}
             >
@@ -218,9 +196,32 @@ function ModalWithForm({
               >
                 {TEXT_SETTINGS.fieldsetCheckboxLegend}
               </legend>
-              {checkboxMarkup}
+              {
+                taxDeductions.map((elem, index) => (
+                  <label
+                    key={uuid()}
+                    className={STYLE_SETTINGS.labelCheckbox}
+                  >
+                    <input
+                      className={STYLE_SETTINGS.inputCheckbox}
+                      type="checkbox"
+                      name={`year${index + 1}`}
+                      onChange={handleChange}
+                      checked={values[`year${index + 1}`]}
+                    />
+                    <span className={STYLE_SETTINGS.visibleInputCheckbox}></span>
+                    {Intl.NumberFormat('ru-RU').format(elem) + TEXT_SETTINGS.labelCheckbox}
+                    <span
+                      className={STYLE_SETTINGS.labelCheckboxSpan}
+                    >
+                      {` ${index + 1}` + getOrdinal(index + 1) + TEXT_SETTINGS.spanLabelCheckbox}
+                    </span>
+                  </label>
+                ))
+              }
             </fieldset>
           )}
+
 
           <fieldset
             className={STYLE_SETTINGS.fieldsetRadio}
@@ -228,16 +229,16 @@ function ModalWithForm({
             <div
               className={STYLE_SETTINGS.fieldsetRadioContainer}
             >
-            <legend
-              className={STYLE_SETTINGS.fieldsetLegend}
-            >
-              {TEXT_SETTINGS.fieldsetRadioLegend}
-            </legend>
-            <div
-              className={STYLE_SETTINGS.inputRadioContainer}
-            >
-              {formRadioButtonsMarkup}
-            </div>
+              <legend
+                className={STYLE_SETTINGS.fieldsetLegend}
+              >
+                {TEXT_SETTINGS.fieldsetRadioLegend}
+              </legend>
+              <div
+                className={STYLE_SETTINGS.inputRadioContainer}
+              >
+                {formRadioButtonsMarkup}
+              </div>
             </div>
 
           </fieldset>

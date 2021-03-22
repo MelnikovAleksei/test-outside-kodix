@@ -10,7 +10,11 @@ function App() {
 
   const handleToggleModalIsOpen = () => {
     setIsModalOpen(!isModalOpen);
-  }
+  };
+
+  const handleFormSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="app">
@@ -22,6 +26,7 @@ function App() {
       </button>
       {isModalOpen && (
         <ModalWithCalcForm
+          onSubmit={handleFormSubmit}
           isOpen={isModalOpen}
           onClose={handleToggleModalIsOpen}
         />

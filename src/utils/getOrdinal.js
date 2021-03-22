@@ -1,6 +1,5 @@
 const getOrdinal = (num) => {
   const str = num.toString();
-  console.log(str)
   if (str.endsWith('12') ||
     str.endsWith('13') ||
     str.endsWith('16') ||
